@@ -17,5 +17,6 @@ function getNoteTemplate () {
                 <td></td>
             </th>
         </table>
+        <p>+ $(note)</p>
             `
 }
