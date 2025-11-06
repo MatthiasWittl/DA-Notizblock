@@ -23,13 +23,13 @@ function renderTrashNotes() {
 
 function getTrashNoteTemplate(indexTrashNote) {
     return `
-        <p>+ ${trashNotes[indexTrashNote]}}<button onclick=moveToTrash(${indexTrashNote}) >X</button></p>;
+        <p>+ ${trashNotes[indexTrashNote]}<button onclick=deleteNote(${indexTrashNote}) >X</button></p>
             `
 }
 
 function getNoteTemplate (indexNote) {
     return `
-        <p>+ ${notes[indexNote]}}<button onclick=deleteNote(${indexNote}) >X</button></p>;
+        <p>+ ${notes[indexNote]}<button onclick=moveToTrash(${indexNote})>X</button></p>
             `
 }
 
