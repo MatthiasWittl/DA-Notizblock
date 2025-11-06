@@ -56,3 +56,15 @@ function deleteNote (indexTrashNote) {
     trashNotes.splice(indexTrashNote, 1)
     renderTrashNotes();
 }
+
+function saveToLocalStorage() {
+    localStorage.setItem("Locla", notes[1]);
+    localStorage.setItem("notes", JSON.stringify(notes[0]));
+}
+
+function logOut () {
+    console.log(localStorage.getItem("Locla"));
+    console.log(localStorage.getItem("notes"));
+    
+    
+}
