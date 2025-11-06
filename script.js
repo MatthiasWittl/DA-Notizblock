@@ -5,13 +5,30 @@ let notes = ['banana', 'rasen mähen', 'Test 1', 'Test 2', 'Test 3'];
 let trashNotesTitles = [];
 let trashNotes = [];
 
+let localnotes = [];
+
+
 function renderNotes () {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
-    for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+    console.log(localStorage.getItem("notes"));
 
-        contentRef.innerHTML += " " + getNoteTemplate(indexNote);
+    if (localStorage.getItem("notes") === null) {
+        for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+
+            contentRef.innerHTML += " " + getNoteTemplate(indexNote);
+        };
+        
+    } else { let noteslocal = localStorage.getItem("notes");
+            let localnotes = JSON.parse(noteslocal);
+            console.log(localnotes);
+            
+        for (let indexLocalNote = 0; indexLocalNote < localnotes.length; indexLocalNote++) {
+
+        contentRef.innerHTML += " " + getLocalNoteTemplate(indexLocalNote, localnotes);
+    };
     }
+    
 }
 
 function renderTrashNotes() {
@@ -31,9 +48,16 @@ function getTrashNoteTemplate(indextrashNote) {
 
 function getNoteTemplate (indexNote) {
     return `
-        <p>+ ${notesTitles[indexNote]} -> ${notes[indexNote]}<button onclick=moveToTrash(${indexNote})>X</button></p>
+        <p>+ -> ${notes[indexNote]}<button onclick=moveToTrash(${indexNote})>X</button></p>
             `
 }
+
+function getLocalNoteTemplate (indexLocalNote, localnotes) {
+    return `
+        <p>+ -> ${localnotes[indexLocalNote]}<button onclick=moveToTrash(${indexLocalNote})>X</button></p>
+            `
+}
+
 
 function addNote() {
     let noteInputRef = document.getElementById('note_input');
@@ -41,6 +65,7 @@ function addNote() {
     notes.push(noteInput);
     renderNotes();
     noteInputRef.value = "";
+    saveToLocalStorage();
 }
 
 function moveToTrash (indexNote, indexnotesTitles) {
@@ -50,6 +75,7 @@ function moveToTrash (indexNote, indexnotesTitles) {
     trashNotesTitles.push(trashNoteTitle)
     renderNotes();
     renderTrashNotes();
+    saveToLocalStorage();
 }
 
 function deleteNote (indexTrashNote) {
@@ -58,8 +84,10 @@ function deleteNote (indexTrashNote) {
 }
 
 function saveToLocalStorage() {
-    localStorage.setItem("Locla", notes[1]);
-    localStorage.setItem("notes", JSON.stringify(notes[0]));
+    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+    localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
+    localStorage.setItem("trashNotesTitles", JSON.stringify(trashNotesTitles));
 }
 
 function logOut () {
