@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notizblock</title>
-    <script src="./script.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/render.js" ></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
 </head>
 
-<body onload="renderNotes()">
+<body>
     <header>
         <h1>Notizblock</h1>
         <span>Notiz</span>
-        <input id="title_input" type="text" placeholder="Titel">
+        <input id="title_input" type="text"  placeholder="Titel" required>
         <span>&#10132</span>
-        <input id="note_input" type="text" placeholder="Aufgabe">
+        <input id="note_input" type="text" placeholder="Aufgabe" required>
         <button onclick="addNote()">Notiz speichern</button>
     </header>
     <main>
