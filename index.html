@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,39 @@
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
 </head>
-<body onload="renderNotes()" >
-    <h2>Notizblock</h2>
-    <input id="note_input" type="text">
-    <button  onclick="addNote()">Notiz speichern</button>
-<div id="content" >
-   
-</div>
 
-<h2>Papierkorb</h2>
-<div id="trash_content" >
-   
-</div>
+<body onload="renderNotes()">
+    <header>
+        <h1>Notizblock</h1>
+        <span>Notiz</span>
+        <input id="title_input" type="text" placeholder="Titel">
+        <span>&#10132</span>
+        <input id="note_input" type="text" placeholder="Aufgabe">
+        <button onclick="addNote()">Notiz speichern</button>
+    </header>
+    <main>
+        <section class="notes_section" >
+            <h2>Notizen</h2>
+            <div id="content">
 
+            </div>
+        </section>
+        <section class="done_section" >
+            <h2>Erledigt</h2>
+            <div id="done_content">
+
+            </div>
+        </section>
+        <section class="trash_section" >
+            <h2>Papierkorb</h2>
+            <div id="trash_content">
+            </div>
+        </section>
+
+
+
+
+    </main>
 </body>
+
 </html>

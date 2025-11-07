@@ -1,0 +1,32 @@
+header {
+    padding-top: 50px;
+    height: 155px;
+    background-color: aqua;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; 
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+header input {
+    border-radius: 5px;
+    height: 30px;
+    
+}
+
+header input::placeholder {
+    text-align: center;
+    font-size: 18px;
+}
+
+header button {
+    border-radius: 5px;
+    font-size: 18px;
+
+}
+
+header span {
+    font-size: 18px;
+}
