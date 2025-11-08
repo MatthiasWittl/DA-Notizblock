@@ -2,9 +2,16 @@
 
 function renderNotes(index) {
     return `
-    <h3>${notesTitles[index]}</h3>
-    <p>${notes[index]}</p>
-    <input type="checkbox" name="" id="${index}">
+    <div class="active_Notes">
+        <h3>${notesTitles[index]}</h3>
+        <p>${notes[index]}</p>
+        <div class="notes_Button" >
+            <button onclick="addToDoneSection(${index})" >&#10003</button>
+            <button onclick="" >&#10754</button>
+        </div>
+    </div>
     `   
 } 
+
+
 

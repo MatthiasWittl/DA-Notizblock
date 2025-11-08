@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/assets.css">
 </head>
 
-<body onload="createNotes()" >
+<body onload="startValueNotes()" >
     <header>
         <h1>Notizblock</h1>
         <span>Notiz</span>
@@ -24,15 +24,15 @@
     <main>
         <section class="notes_section" >
             <h2>Notizen</h2>
-            <div id="content" class="active_Notes" >
+            <section id="content" class="actual_Notes" >
                
-            </div>
+            </section>
         </section>
-        <section class="done_section" >
+        <section>
             <h2>Erledigt</h2>
-            <div id="done_content">
-                <button type="submit" ></button>
-            </div>
+            <section id="done_content" class="done_content" >
+
+            </section>
         </section>
         <section class="trash_section" >
             <h2>Papierkorb</h2>
@@ -40,6 +40,7 @@
             </div>
         </section>
 
+        
 
 
 
