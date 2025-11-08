@@ -30,3 +30,12 @@ header button {
 header span {
     font-size: 18px;
 }
+
+.active_Notes {
+    width: fit-content;
+    background-color: aqua;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
