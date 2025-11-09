@@ -34,7 +34,9 @@ function renderTrashNotes(index) {
         <p>${trashNotes[index]}</p>
         <div class="notes_Button" >
             <button onclick="moveBackFromTrashToActive(${index})" >&#10003</button>
+            <button onclick="fromTrashToDone(${index})" >&#8613</button>
             <button onclick="removeNoteComplete(${index})" >&#10754</button>
+
         </div>
     </div>
     `   

@@ -81,3 +81,10 @@ function fromDoneToActive(index) {
     createNotes();
     createDoneNotes();
 }
+
+function fromTrashToDone(index) {
+    finishedNotes.push(trashNotes.splice(index, 1));
+    finishedNotesTitles.push(trashNotesTitles.splice(index, 1));
+    createDoneNotes();
+    createTrashNotes();
+}
