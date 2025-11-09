@@ -21,6 +21,19 @@ function renderDoneNotes(index) {
         <p>${finishedNotes[index]}</p>
         <div class="notes_Button" >
             <button onclick="addToDoneSection(${index})" >&#10003</button>
+            <button onclick="addToTrashSection(${index})" >&#10754</button>
+        </div>
+    </div>
+    `   
+}
+
+function renderTrashNotes(index) {
+    return `
+    <div class="active_Notes">
+        <h3>${trashNotesTitles[index]}</h3>
+        <p>${trashNotes[index]}</p>
+        <div class="notes_Button" >
+            <button onclick="addToDoneSection(${index})" >&#10003</button>
             <button onclick="" >&#10754</button>
         </div>
     </div>
