@@ -18,9 +18,11 @@ function addNote() {
 }
 
 
-function addToDoneSection () {
+function addToDoneSection (index) {
     finishedNotes.push(notes.splice(index, 1));
+    finishedNotesTitles.push(notesTitles.splice(index, 1));
     createNotes();
+    doneNotes();
 }
 
 
@@ -29,4 +31,11 @@ function createNotes() {
 for (let index = 0; index < notes.length; index++) {
     document.getElementById("content").innerHTML += renderNotes(index); 
 }
+}
+
+function doneNotes() {
+    document.getElementById("done_content").innerHTML = "";
+    for (let index = 0; index < finishedNotes.length; index++) {
+        document.getElementById("done_content").innerHTML += renderDoneNotes(index);
+    }
 }

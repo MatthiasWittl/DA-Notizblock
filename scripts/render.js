@@ -14,4 +14,15 @@ function renderNotes(index) {
 } 
 
 
-
+function renderDoneNotes(index) {
+    return `
+    <div class="active_Notes">
+        <h3>${finishedNotesTitles[index]}</h3>
+        <p>${finishedNotes[index]}</p>
+        <div class="notes_Button" >
+            <button onclick="addToDoneSection(${index})" >&#10003</button>
+            <button onclick="" >&#10754</button>
+        </div>
+    </div>
+    `   
+}
