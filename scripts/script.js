@@ -74,3 +74,10 @@ function removeNoteComplete(index) {
     trashNotesTitles.splice(index, 1);
     createTrashNotes();
 }
+
+function fromDoneToActive(index) {
+    notes.push(finishedNotes.splice(index, 1));
+    notesTitles.push(finishedNotesTitles.splice(index, 1));
+    createNotes();
+    createDoneNotes();
+}
