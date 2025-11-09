@@ -68,3 +68,9 @@ function moveBackFromTrashToActive(index) {
     createNotes();
     createTrashNotes();
 }
+
+function removeNoteComplete(index) {
+    trashNotes.splice(index, 1);
+    trashNotesTitles.splice(index, 1);
+    createTrashNotes();
+}
