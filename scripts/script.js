@@ -54,3 +54,17 @@ function createTrashNotes() {
         document.getElementById("trash_content").innerHTML += renderTrashNotes(index);
     }
 }
+
+function addDirectToTrash(index) {
+    trashNotes.push(notes.splice(index, 1));
+    trashNotesTitles.push(notesTitles.splice(index, 1));
+    createNotes();
+    createTrashNotes();
+}
+
+function moveBackFromTrashToActive(index) {
+    notes.push(trashNotes.splice(index, 1));
+    notesTitles.push(trashNotesTitles.splice(index, 1));
+    createNotes();
+    createTrashNotes();
+}
