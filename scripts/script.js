@@ -101,10 +101,14 @@ function fromTrashToDone(index) {
 }
 
 function saveToLocalStorage() {
-    localStorage.setItem("notes", notes);
-    localStorage.setItem("notesTitles", notesTitles);
-    localStorage.setItem("finishedNotes", finishedNotes);
-    localStorage.setItem("finishedNotesTitles", finishedNotesTitles);
-    localStorage.setItem("trashNotes", trashNotes);
-    localStorage.setItem("trashNotesTitles", trashNotesTitles);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+    localStorage.setItem("finishedNotes", JSON.stringify(finishedNotes));
+    localStorage.setItem("finishedNotesTitles", JSON.stringify(finishedNotesTitles));
+    localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
+    localStorage.setItem("trashNotesTitles", JSON.stringify(trashNotesTitles));
+    console.log(JSON.parse(localStorage.getItem("notes")), JSON.parse(localStorage.getItem("notesTitles")));
+    console.log(JSON.parse(localStorage.getItem("finishedNotes")), JSON.parse(localStorage.getItem("finishedNotesTitles")));
+    console.log(JSON.parse(localStorage.getItem("trashNotes")), JSON.parse(localStorage.getItem("trashNotesTitles")));
+    
 }
