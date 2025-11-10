@@ -14,17 +14,19 @@ function addNote() {
     notes.push(document.getElementById("note_input").value);
     notesTitles.push(document.getElementById("title_input").value);
     createNotes();
-    localStorage.setItem("notes", notes);
+    saveToLocalStorage();
 }
 
 
 function addToDoneSection (index) {
     finishedNotes.push(notes.splice(index, 1));
     finishedNotesTitles.push(notesTitles.splice(index, 1));
+    saveToLocalStorage();
     createNotes();
     createDoneNotes();
 }
 
+/* Start create Notes */
 
 function createNotes() {
     document.getElementById("content").innerHTML = "";
@@ -40,14 +42,6 @@ function createDoneNotes() {
     }
 }
 
-
-function addToTrashSection (index) {
-    trashNotes.push(finishedNotes.splice(index, 1));
-    trashNotesTitles.push(finishedNotesTitles.splice(index, 1));
-    createDoneNotes();
-    createTrashNotes();
-}
-
 function createTrashNotes() {
     document.getElementById("trash_content").innerHTML = "";
     for (let index = 0; index < trashNotes.length; index++) {
@@ -55,9 +49,22 @@ function createTrashNotes() {
     }
 }
 
+/* create Notes End*/
+
+function addToTrashSection (index) {
+    trashNotes.push(finishedNotes.splice(index, 1));
+    trashNotesTitles.push(finishedNotesTitles.splice(index, 1));
+    saveToLocalStorage();
+    createDoneNotes();
+    createTrashNotes();
+}
+
+
+
 function addDirectToTrash(index) {
     trashNotes.push(notes.splice(index, 1));
     trashNotesTitles.push(notesTitles.splice(index, 1));
+    saveToLocalStorage();
     createNotes();
     createTrashNotes();
 }
@@ -65,6 +72,7 @@ function addDirectToTrash(index) {
 function moveBackFromTrashToActive(index) {
     notes.push(trashNotes.splice(index, 1));
     notesTitles.push(trashNotesTitles.splice(index, 1));
+    saveToLocalStorage();
     createNotes();
     createTrashNotes();
 }
@@ -72,12 +80,14 @@ function moveBackFromTrashToActive(index) {
 function removeNoteComplete(index) {
     trashNotes.splice(index, 1);
     trashNotesTitles.splice(index, 1);
+    saveToLocalStorage();
     createTrashNotes();
 }
 
 function fromDoneToActive(index) {
     notes.push(finishedNotes.splice(index, 1));
     notesTitles.push(finishedNotesTitles.splice(index, 1));
+    saveToLocalStorage();
     createNotes();
     createDoneNotes();
 }
@@ -85,6 +95,16 @@ function fromDoneToActive(index) {
 function fromTrashToDone(index) {
     finishedNotes.push(trashNotes.splice(index, 1));
     finishedNotesTitles.push(trashNotesTitles.splice(index, 1));
+    saveToLocalStorage();
     createDoneNotes();
     createTrashNotes();
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("notes", notes);
+    localStorage.setItem("notesTitles", notesTitles);
+    localStorage.setItem("finishedNotes", finishedNotes);
+    localStorage.setItem("finishedNotesTitles", finishedNotesTitles);
+    localStorage.setItem("trashNotes", trashNotes);
+    localStorage.setItem("trashNotesTitles", trashNotesTitles);
 }
