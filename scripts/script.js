@@ -112,3 +112,10 @@ function saveToLocalStorage() {
     console.log(JSON.parse(localStorage.getItem("trashNotes")), JSON.parse(localStorage.getItem("trashNotesTitles")));
     
 }
+
+function checkForLocalStorage () {
+    if (localStorage.getItem("notes") === null) {
+        /* verwende standard function */
+} else {
+    /* verwende local storage */
+}
