@@ -117,7 +117,17 @@ function checkForLocalStorage() {
     if (localStorage.getItem("notes") === null) {
         createNotes();
 } else {
+    getFromLocalStorage();
+    createNotes();
+    createDoneNotes();
+    createTrashNotes();
+}}
+
+function getFromLocalStorage() {
     notes = JSON.parse(localStorage.getItem("notes"));
     notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
-    createNotes();
-}}
+    finishedNotes = JSON.parse(localStorage.getItem("finishedNotes"));
+    finishedNotesTitles = JSON.parse(localStorage.getItem("finishedNotesTitles"));
+    trashNotes = JSON.parse(localStorage.getItem("trashNotes"));
+    trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
+}
