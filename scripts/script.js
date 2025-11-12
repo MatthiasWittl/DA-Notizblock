@@ -113,9 +113,11 @@ function saveToLocalStorage() {
     
 }
 
-function checkForLocalStorage () {
+function checkForLocalStorage() {
     if (localStorage.getItem("notes") === null) {
-        /* verwende standard function */
+        createNotes();
 } else {
-    /* verwende local storage */
-}
+    notes = JSON.parse(localStorage.getItem("notes"));
+    notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
+    createNotes();
+}}
