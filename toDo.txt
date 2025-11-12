@@ -1,2 +1,1 @@
-function bauen die beim Laden der Seite überprüft ob sich im LocalStorage werte befinden 
-und diese verwendet und wenn nicht die hart programmierten nutzt
+refectering functions keine doppeltelten
