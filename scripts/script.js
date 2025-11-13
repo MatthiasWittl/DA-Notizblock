@@ -29,6 +29,7 @@ function addToDoneSection (index) {
 /* Start create Notes */
 
 function createNotes() {
+    notesCounter();
     document.getElementById("content").innerHTML = "";
 for (let index = 0; index < notes.length; index++) {
     document.getElementById("content").innerHTML += renderNotes(index); 
@@ -36,6 +37,7 @@ for (let index = 0; index < notes.length; index++) {
 }
 
 function createDoneNotes() {
+    notesCounter();
     document.getElementById("done_content").innerHTML = "";
     for (let index = 0; index < finishedNotes.length; index++) {
         document.getElementById("done_content").innerHTML += renderDoneNotes(index);
@@ -43,6 +45,7 @@ function createDoneNotes() {
 }
 
 function createTrashNotes() {
+    notesCounter();
     document.getElementById("trash_content").innerHTML = "";
     for (let index = 0; index < trashNotes.length; index++) {
         document.getElementById("trash_content").innerHTML += renderTrashNotes(index);
@@ -107,9 +110,6 @@ function saveToLocalStorage() {
     localStorage.setItem("finishedNotesTitles", JSON.stringify(finishedNotesTitles));
     localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
     localStorage.setItem("trashNotesTitles", JSON.stringify(trashNotesTitles));
-    console.log(JSON.parse(localStorage.getItem("notes")), JSON.parse(localStorage.getItem("notesTitles")));
-    console.log(JSON.parse(localStorage.getItem("finishedNotes")), JSON.parse(localStorage.getItem("finishedNotesTitles")));
-    console.log(JSON.parse(localStorage.getItem("trashNotes")), JSON.parse(localStorage.getItem("trashNotesTitles")));
     
 }
 
@@ -130,4 +130,10 @@ function getFromLocalStorage() {
     finishedNotesTitles = JSON.parse(localStorage.getItem("finishedNotesTitles"));
     trashNotes = JSON.parse(localStorage.getItem("trashNotes"));
     trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
+}
+
+function notesCounter() {
+    document.getElementById("activeNotesCounter").innerHTML = notes.length;
+    document.getElementById("doneNotesCounter").innerHTML = finishedNotes.length;
+    document.getElementById("trashNotesCounter").innerHTML = trashNotes.length;
 }
