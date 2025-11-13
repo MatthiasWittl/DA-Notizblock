@@ -2,7 +2,7 @@
 
 function renderNotes(index) {
     return `
-    <div class="active_Notes">
+    <div class="active_Notes active_Notes_Color">
         <h3>${notesTitles[index]}</h3>
         <p>${notes[index]}</p>
         <div class="notes_Button" >
@@ -16,7 +16,7 @@ function renderNotes(index) {
 
 function renderDoneNotes(index) {
     return `
-    <div class="active_Notes">
+    <div class="active_Notes done_Notes_Color">
         <h3>${finishedNotesTitles[index]}</h3>
         <p>${finishedNotes[index]}</p>
         <div class="notes_Button" >
@@ -29,7 +29,7 @@ function renderDoneNotes(index) {
 
 function renderTrashNotes(index) {
     return `
-    <div class="active_Notes">
+    <div class="active_Notes trash_Notes_Color">
         <h3>${trashNotesTitles[index]}</h3>
         <p>${trashNotes[index]}</p>
         <div class="notes_Button" >
