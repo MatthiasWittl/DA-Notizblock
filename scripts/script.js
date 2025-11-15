@@ -8,13 +8,21 @@ let finishedNotes = [];
 let trashNotesTitles = [];
 let trashNotes = [];
 
-
+let notesObject = {
+    notes: [],
+    notesTitles: [],
+    finishedNotes: [],
+    finishedNotesTitles: [],
+    trashNotes: [],
+    trashNotesTitles: []
+}
 
 function addNote() {
-    notes.push(document.getElementById("note_input").value);
-    notesTitles.push(document.getElementById("title_input").value);
-    createNotes();
-    saveToLocalStorage();
+    notesObject['notes'].push(document.getElementById("note_input").value);
+    notesObject['notesTitles'].push(document.getElementById("title_input").value);
+    console.log(notesObject.notes, notesObject.notesTitles);
+    /*createNotes();
+    saveToLocalStorage(); */
 }
 
 
@@ -133,7 +141,7 @@ function getFromLocalStorage() {
 }
 
 function notesCounter() {
-    document.getElementById("activeNotesCounter").innerHTML = notes.length;
-    document.getElementById("doneNotesCounter").innerHTML = finishedNotes.length;
-    document.getElementById("trashNotesCounter").innerHTML = trashNotes.length;
+    document.getElementById("activeNotesCounter").innerHTML = notesObject['notes'].length;
+    document.getElementById("doneNotesCounter").innerHTML = notesObject['finishedNotes'].length;
+    document.getElementById("trashNotesCounter").innerHTML = notesObject['trashNotes'].length;
 }

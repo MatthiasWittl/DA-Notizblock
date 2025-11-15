@@ -1,1 +1,1 @@
-refectering functions keine doppeltelten
+create Notes umstellen auf das Object
